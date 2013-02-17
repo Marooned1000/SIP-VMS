@@ -1,0 +1,54 @@
+package ir.iranet.vms.util;
+
+import java.util.logging.Level;
+
+
+enum SessionState {
+	start, s0, s1, s2, s3, s4, s5, s6,s7  
+}
+public class Timer extends Thread
+{
+	
+		SessionState state;
+		/** Length of timeout */
+		private int m_length;		
+
+		/**
+		  * Creates a timer of a specified length
+		  * @param	length	Length of time before timeout occurs
+		  */
+		public Timer ( int length)
+		{
+			// Assign to member variabl
+		//	state=S;
+			m_length = length;			
+		}	
+		
+		/** Performs timer specific code */
+		public void run()
+		{			
+				// Put the timer to sleep
+				try
+				{ 
+					//VMSLogger.log(Level.INFO,"Timer Sleep.");					
+					Thread.sleep(m_length);
+					timeout();
+					//VMSLogger.log(Level.INFO,"Timer Wake Up.");
+					
+				}
+				catch (InterruptedException ioe) 
+				{
+					//continue;
+				}
+		}
+
+		// Override this to provide custom functionality
+		public void timeout()
+		{
+			System.err.println ("Timeout occurred.... terminating");
+			this.stop();						
+			System.exit(1);
+			
+		}
+	}
+	

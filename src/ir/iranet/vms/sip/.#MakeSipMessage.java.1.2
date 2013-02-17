@@ -1,0 +1,388 @@
+package ir.iranet.vms.sip;
+
+import ir.iranet.vms.util.VMSLogger;
+
+import java.util.logging.Level;
+
+public class MakeSipMessage 
+{
+	
+	
+	////////////////////////////////////////////////////////////////
+	//Make SIP Request
+	////////////////////////////////////////////////////////////////
+	public static String MakeSipRequest(SIPRequest request)
+	{
+		VMSLogger.log(Level.INFO, "Start to make SIP request.");
+		
+		String reqMessage="";
+		if(request.getMethod()!=null)
+			reqMessage=reqMessage+request.getMethod()+" ";
+		
+		if(request.getRequestURI()!=null)
+			reqMessage=reqMessage+request.getRequestURI()+" ";
+		
+		if(request.getSIPVersion()!=null)
+			reqMessage=reqMessage+request.getSIPVersion()+"\n";
+		
+		if(request.getVia()!=null)
+		{
+			int count=request.getContact().length;
+			for(int i=0;i<count;i++)
+				reqMessage=reqMessage+"Via:"+request.Via[i]+"\n";
+		}
+					
+		if(request.getTo()!=null)
+			reqMessage=reqMessage+"To:"+request.getTo()+"\n";
+		
+		if(request.getFrom()!=null)
+			reqMessage=reqMessage+"From:"+request.getFrom()+"\n";
+		
+		if(request.getCallId()!=null)
+			reqMessage=reqMessage+"Call-ID:"+request.getCallId()+"\n";
+		
+		if(request.getAuthorization()!=null)
+			reqMessage=reqMessage+"Authorization:"+request.getAuthorization()+"\n";
+		
+		if(request.getCSeq()!=null)
+			reqMessage=reqMessage+"CSeq:"+request.getCSeq()+"\n";
+		
+		if(request.getMax_Forward()!=null)
+			reqMessage=reqMessage+"Max-Forward:"+request.getMax_Forward()+"\n";
+		
+		if(request.getContact()!=null)
+		{
+			int count=request.getContact().length;
+			for(int i=0;i<count;i++)
+				reqMessage=reqMessage+"Contact:"+request.Contact[i]+"\n";
+		}
+					
+		if(request.getExpires()!=null)
+			reqMessage=reqMessage+"Expires:"+request.getExpires()+"\n";
+		
+		if(request.getAccept()!=null)
+			reqMessage=reqMessage+"Accept:"+request.getAccept()+"\n";
+		
+		if(request.getAccept_Encoding()!=null)
+			reqMessage=reqMessage+"Accept-Encoding:"+request.Accept_Encoding+"\n";
+		
+		if(request.getAccept_Language()!=null)
+			reqMessage=reqMessage+"Accept-Language:"+request.getAccept_Language()+"\n";
+		
+		if(request.getDate()!=null)
+			reqMessage=reqMessage+"Date:"+request.getDate()+"\n";
+		
+		if(request.getAllow()!=null)
+			reqMessage=reqMessage+"Allow:"+request.getAllow()+"\n";
+		
+		if(request.getEncryption()!=null)
+			reqMessage=reqMessage+"Encryption:"+request.getEncryption()+"\n";
+		
+		if(request.getHide()!=null)
+			reqMessage=reqMessage+"Hide:"+request.getHide()+"\n";
+		
+		if(request.getIn_Reply_To() !=null)
+			reqMessage=reqMessage+"In_Reply_To:"+request.getIn_Reply_To()+"\n";
+		
+		if(request.getOrganization()!=null)
+			reqMessage=reqMessage+"Organization:"+request.getOrganization()+"\n";
+		
+		if(request.getPriority()!=null)
+			reqMessage=reqMessage+"Priority:"+request.getPriority()+"\n";
+		
+		if(request.getProxy_Authentication()!=null)
+			reqMessage=reqMessage+"Proxy_Authentication:"+request.getProxy_Authentication()+"\n";
+		
+		if(request.getProxy_Require()!=null)
+			reqMessage=reqMessage+"Proxy_Require:"+request.getProxy_Require()+"\n";
+		
+		if(request.getRecord_Route()!=null)
+		{
+			int count=request.getRecord_Route().length;
+			for(int i=0;i<count;i++)
+				reqMessage=reqMessage+"Record_Route:"+request.Record_Route[i]+"\n";			
+		}			
+		
+		if(request.getRequire()!=null)
+			reqMessage=reqMessage+"Require:"+request.getRequire()+"\n";
+		
+		if(request.getResponse_Key()!=null)
+			reqMessage=reqMessage+"Response_Key:"+request.getResponse_Key()+"\n";
+		
+		if(request.getRoute()!=null)
+		{
+			int count=request.getRoute().length;
+			for(int i=0;i<count;i++)
+				reqMessage=reqMessage+"Route:"+request.Route[i]+"\n";
+		}
+					
+		if(request.getSubject()!=null)
+			reqMessage=reqMessage+"Subject:"+request.getSubject()+"\n";
+		
+		if(request.getSupported()!=null)
+			reqMessage=reqMessage+"Supported:"+request.getSupported()+"\n";
+		
+		if(request.getTimestamp()!=null)
+			reqMessage=reqMessage+"Timestamp:"+request.getTimestamp()+"\n";
+		
+		if(request.getUser_Agent()!=null)
+			reqMessage=reqMessage+"User_Agent:"+request.getUser_Agent()+"\n";
+		
+		if(request.getContent_Desposition()!=null)
+			reqMessage=reqMessage+"Content_Desposition:"+request.getContent_Desposition()+"\n";
+		
+		if(request.getContent_Encoding()!=null)
+			reqMessage=reqMessage+"Content_Encoding:"+request.getContent_Encoding()+"\n";
+		
+		if(request.getContent_Language()!=null)
+			reqMessage=reqMessage+"Content_Language:"+request.getContent_Language()+"\n";
+		
+		if(request.getContent_Length()!=null)
+			reqMessage=reqMessage+"Content_Length:"+request.getContent_Length()+"\n";
+		
+		if(request.getContent_Type()!=null)
+			reqMessage=reqMessage+"Content_Type:"+request.getContent_Type()+"\n";
+		
+		
+				
+		if(request.sdp!=null)
+		{
+			MakeSipBody(request,reqMessage);
+			
+		}
+		VMSLogger.log(Level.INFO, "Make a SIP request.");
+		return reqMessage;
+	}
+	
+	
+	
+	////////////////////////////////////////////////////////////
+	// Make SIP Response
+	////////////////////////////////////////////////////////////
+	public static String MakeSipResponse(SIPResponse response)
+	{
+		VMSLogger.log(Level.INFO, "Start to make SIP response");
+		
+		String resMessage="";
+		if(response.getSIPVersion()!=null)
+			resMessage=resMessage+response.getSIPVersion()+" ";
+		
+		if(response.getStatusCode()!=null)
+			resMessage=resMessage+response.getStatusCode()+" ";
+		
+		if(response.getReasonPhrase()!=null)
+			resMessage=resMessage+response.getReasonPhrase()+"\n";
+		
+		if(response.getVia()!=null)
+		{
+			int count=response.getVia().length;
+			for(int i=0;i<count;i++)
+				resMessage=resMessage+"Via:"+response.Via[i]+"\n";			
+		}			
+		
+		if(response.getTo()!=null)
+			resMessage=resMessage+"To:"+response.getTo()+"\n";
+		
+		if(response.getFrom()!=null)
+			resMessage=resMessage+"From:"+response.getFrom()+"\n";
+		
+		if(response.getCallId()!=null)
+			resMessage=resMessage+"Call-ID:"+response.getCallId()+"\n";
+		
+		if(response.getCSeq()!=null)
+			resMessage=resMessage+"CSeq:"+response.getCSeq()+"\n";
+		
+		if(response.getAccept()!=null)
+			resMessage=resMessage+"Accept:"+response.getAccept()+"\n";
+		
+		if(response.getAccept_Encoding()!=null)
+			resMessage=resMessage+"Accept_Encoding:"+response.getAccept_Encoding()+"\n";
+		
+		if(response.getAccept_Language()!=null)
+			resMessage=resMessage+"Accept_Language:"+response.getAccept_Language()+"\n";
+		
+		if(response.getAllow()!=null)
+			resMessage=resMessage+"Allow:"+response.getAllow()+"\n";
+		
+		if(response.getContact()!=null)
+		{
+			int count=response.getContact().length;
+			for(int i=0;i<count;i++)
+				resMessage=resMessage+"Contact:"+response.Contact[i]+"\n";
+			
+		}			
+		
+		if(response.getContent_Desposition()!=null)
+			resMessage=resMessage+"Content_Desposition:"+response.getContent_Desposition()+"\n";
+		
+		if(response.getContent_Encoding()!=null)
+			resMessage=resMessage+"Content_Encoding:"+response.getContent_Encoding()+"\n";
+		
+		if(response.getContent_Language()!=null)
+			resMessage=resMessage+"Content_Language:"+response.getContent_Language()+"\n";
+		
+		if(response.getContent_Length()!=null)
+			resMessage=resMessage+"Content_Length:"+response.getContent_Length()+"\n";
+		
+		if(response.getContent_Type()!=null)
+			resMessage=resMessage+"Content_Type:"+response.getContent_Type()+"\n";
+		
+		if(response.getDate()!=null)
+			resMessage=resMessage+"Date:"+response.getDate()+"\n";
+		
+		if(response.getEncryption()!=null)
+			resMessage=resMessage+"Encryption:"+response.getEncryption()+"\n";
+		
+		if(response.getExpires()!=null)
+			resMessage=resMessage+"Expires:"+response.getExpires()+"\n";
+		
+		if(response.getOrganization()!=null)
+			resMessage=resMessage+"Organization:"+response.getOrganization()+"\n";
+		
+		if(response.getProxy_Authenticate()!=null)
+			resMessage=resMessage+"Proxy_Authenticate:"+response.getProxy_Authenticate()+"\n";
+		
+		if(response.getRecord_Route()!=null)
+		{
+			int count=response.getRecord_Route().length;
+			for(int i=0;i<count;i++)
+				resMessage=resMessage+"Record_Route:"+response.Record_Route[i]+"\n";
+		}			
+		
+		if(response.getRetry_After()!=null)
+			resMessage=resMessage+"Retry_After:"+response.getRetry_After()+"\n";
+		
+		if(response.getRequire()!=null)
+			resMessage=resMessage+"Require:"+response.getRequire()+"\n";
+		
+		if(response.getServer()!=null)
+			resMessage=resMessage+"Server:"+response.getServer()+"\n";
+		
+		if(response.getSupported()!=null)
+			resMessage=resMessage+"Supported:"+response.getSupported()+"\n";
+		
+		if(response.getTimestamp()!=null)
+			resMessage=resMessage+"Timestamp:"+response.getTimestamp()+"\n";
+		
+		if(response.getUnsupported()!=null)
+			resMessage=resMessage+"Unsupported:"+response.getUnsupported()+"\n";
+		
+		if(response.getUser_Agent()!=null)
+			resMessage=resMessage+"User_Agent:"+response.getUser_Agent()+"\n";
+		
+		if(response.sdp!=null)
+		{
+			MakeSipBody(response,resMessage);
+			
+		}
+		VMSLogger.log(Level.INFO, "Make a SIP request");
+		return resMessage;
+	} 
+	
+	
+	
+	////////////////////////////////////////////////////////////
+	// Make SIP Body (SDP)
+	///////////////////////////////////////////////////////////
+	public static String MakeSipBody(SIPMessage body,String message)
+	{
+		VMSLogger.log(Level.INFO, "Start to make SIP message body.");
+		message=message+"\n";
+		
+		//Session Description
+		if(body.sdp.getSessionDescription().getS()!=null)
+			message=message+"s="+body.sdp.getSessionDescription().getS()+"\n";
+		
+		if(body.sdp.getSessionDescription().getA()!=null)
+		{
+			int count=body.sdp.getSessionDescription().getA().length;
+			for(int i=0;i<count;i++)
+				message=message+"a="+body.sdp.getSessionDescription().a[i]+"\n";
+		}
+					
+		if(body.sdp.getSessionDescription().getB()!=null)
+		{
+			int count=body.sdp.getSessionDescription().getB().length;
+			for(int i=0;i<count;i++)
+				message=message+"b="+body.sdp.getSessionDescription().b[i]+"\n";
+		}
+					
+		if(body.sdp.getSessionDescription().getC()!=null)
+			message=message+"c="+body.sdp.getSessionDescription().getC()+"\n";
+		
+		if(body.sdp.getSessionDescription().getE()!=null)
+		{
+			int count=body.sdp.getSessionDescription().getE().length;
+			for(int i=0;i<count;i++)
+				message=message+"e="+body.sdp.getSessionDescription().e[i]+"\n";
+		}
+					
+		if(body.sdp.getSessionDescription().getI()!=null)
+			message=message+"i="+body.sdp.getSessionDescription().getI()+"\n";
+		
+		if(body.sdp.getSessionDescription().getK()!=null)
+			message=message+"k="+body.sdp.getSessionDescription().getK()+"\n";
+		
+		if(body.sdp.getSessionDescription().getO()!=null)
+			message=message+"o="+body.sdp.getSessionDescription().getO()+"\n";
+		
+		if(body.sdp.getSessionDescription().getP()!=null)
+		{
+			int count=body.sdp.getSessionDescription().getP().length;
+			for(int i=0;i<count;i++)
+				message=message+"p="+body.sdp.getSessionDescription().p[i]+"\n";
+		}
+					
+		if(body.sdp.getSessionDescription().getU()!=null)
+			message=message+"u="+body.sdp.getSessionDescription().getU()+"\n";
+		
+		if(body.sdp.getSessionDescription().getV()!=null)
+			message=message+"v="+body.sdp.getSessionDescription().getV()+"\n";
+		
+		if(body.sdp.getSessionDescription().getZ()!=null)
+			message=message+"z="+body.sdp.getSessionDescription().getZ()+"\n";
+		
+		//Time Description
+		if(body.sdp.getTimeDescription().getT()!=null)
+		{
+			int count=body.sdp.getTimeDescription().getT().length;
+			for(int i=0;i<count;i++)
+				message=message+"t="+body.sdp.getTimeDescription().t[i]+"\n";
+		}
+			
+		
+		if(body.sdp.getTimeDescription().getR()!=null)
+			message=message+"r"+body.sdp.getTimeDescription().getR()+"\n";
+		
+		//Media Description
+		int count=body.sdp.getMediaDescription().length;
+		for(int i=0;i<count;i++)
+		{
+			if(body.sdp.MediaDescription[i].getM()!=null)
+				message=message+"m="+body.sdp.MediaDescription[i].getM()+"\n";
+		
+			if(body.sdp.MediaDescription[i].getA()!=null)
+				message=message+"a="+body.sdp.MediaDescription[i].getA()+"\n";
+		
+			if(body.sdp.MediaDescription[i].getB()!=null)
+				message=message+"b="+body.sdp.MediaDescription[i].getB()+"\n";
+		
+			if(body.sdp.MediaDescription[i].getC()!=null)
+			{
+				int c=body.sdp.MediaDescription[i].getC().length;
+				for(int j=0;j<c;j++)
+					message=message+"c="+body.sdp.MediaDescription[i].c[j]+"\n";
+			}
+				
+		
+			if(body.sdp.MediaDescription[i].getI()!=null)
+				message=message+"i="+body.sdp.MediaDescription[i].getI()+"\n";
+		
+			if(body.sdp.MediaDescription[i].getK()!=null)
+				message=message+"k="+body.sdp.MediaDescription[i].getK()+"\n";
+		}
+		
+		VMSLogger.log(Level.INFO, "make SIP message body.");
+		return message;
+	}
+}

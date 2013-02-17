@@ -1,0 +1,599 @@
+package ir.iranet.vms.sip;
+
+import java.net.DatagramPacket;
+import java.util.logging.Level;
+
+import ir.iranet.vms.SIPUtils;
+import ir.iranet.vms.util.VMSLogger;
+
+public class SIPParser {
+	
+	static byte sipPacket[] = new byte[1024];
+	
+	static int start,end;
+	static boolean body;
+	static String SMT;       //Session Description(S) or Media Description(M) or Time Description(T)
+	static SIPUtils siputils;
+	
+	public static SIPMessage parse(DatagramPacket packet){
+		
+		VMSLogger.log(Level.INFO, "Start to parse a SIP message.");
+		siputils = new SIPUtils();
+		sipPacket=packet.getData();
+		String message=new String(sipPacket);
+		start=0;
+		if(!message.equals("")){
+			end=message.indexOf(" ");
+			
+			if(end==-1){
+				
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return null;
+			}
+			
+			String str;
+			str=message.substring(start,end);
+			if(str.equals("SIP/2.0"))   // SIP message is a response
+			{
+				SIPResponse response=new SIPResponse();
+				parse(message,response);
+				return response;
+			}
+			else						// SIP message is a request
+			{				
+				SIPRequest request=new SIPRequest();
+				parse(message,request);
+				return request;
+			}
+		}
+		return null;
+	}
+	
+	////////////////////////////////////////////////////////////////
+    //	Parse SIP Requests
+	////////////////////////////////////////////////////////////////
+	private static void parse(String message,SIPRequest request)
+	{		
+		start=0;
+		body=false;
+		
+				
+		VMSLogger.log(Level.INFO, "SIP message is a request");
+		
+		if(!message.equals(""))
+		{
+			
+			end=message.indexOf(" ");
+			if(end==-1){
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return;
+			}
+			request.setMethod(message.substring(start,end));			
+			message=message.substring(end+1);			
+		}
+		else{
+			//syntax error
+			siputils.SetErrorNumber(400);
+		}
+		
+		if(!message.equals(""))
+		{			
+			end=message.indexOf(" ");
+			if(end==-1){
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return;
+			}
+			
+			request.setRequestURI(message.substring(start,end));			
+			message=message.substring(end+1);			
+		}
+		else{
+			//syntax error
+			siputils.SetErrorNumber(400);
+		}
+		if(!message.equals(""))
+		{
+			end=message.indexOf("\n");
+			if(end==-1){
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return;
+			}
+			request.setSIPVersion(message.substring(start,end));		
+			message=message.substring(end+1);		
+			
+		}
+		else{
+			//syntax error
+			siputils.SetErrorNumber(400);
+		}
+		
+		
+		int viaNum=0;
+		int contactNum=0;
+		int routeNum=0;
+		int record_routeNum=0;
+		while(!message.equals(""))
+		{	
+			if(body==false){
+				end=message.indexOf(":");
+				if(end==-1){
+					//Syntax Error
+					siputils.SetErrorNumber(400);
+					return;
+				}
+				String headerName=message.substring(start,end);
+				message=message.substring(end+1);
+				end=message.indexOf("\n");
+				if(end==-1){
+					//Syntax Error
+					siputils.SetErrorNumber(400);
+					return;
+				}
+			
+				if(headerName.equals("Via")){
+					request.setVia(message.substring(start,end),viaNum++);									
+				}
+				else if(headerName.equals("To")){
+					request.setTo(message.substring(start,end));
+				}
+				else if(headerName.equals("From")){
+					request.setFrom(message.substring(start,end));
+				}
+				else if(headerName.equals("Call-ID")){
+					request.setCallId(message.substring(start,end));
+				}
+				else if(headerName.equals("Authorization")){
+					request.setAuthorization(message.substring(start,end));
+				}							
+				else if(headerName.equals("Accept")){
+					request.setAccept(message.substring(start,end));
+				}
+				else if(headerName.equals("Accept-Encoding")){
+					request.setAccept_Encoding(message.substring(start,end));
+				}	
+				else if(headerName.equals("Accept-Language")){
+					request.setAccept_Encoding(message.substring(start,end));
+				}
+				else if(headerName.equals("Allow")){
+					request.setAllow(message.substring(start,end));
+				}				
+				else if(headerName.equals("CSeq")){
+					request.setCSeq(message.substring(start,end));
+				}
+				else if(headerName.equals("Contact")){
+					request.setContact(message.substring(start,end),contactNum++);					
+				}
+				else if(headerName.equals("Content-Desposition")){
+					request.setContent_Desposition(message.substring(start,end));
+				}
+				else if(headerName.equals("Content-Encoding")){
+					request.setContent_Encoding(message.substring(start,end));
+				}
+				else if(headerName.equals("Content-Length")){
+					request.setContent_Length(message.substring(start,end));
+				}
+				else if(headerName.equals("Content-Language")){
+					request.setContent_Language(message.substring(start,end));
+				}
+				else if(headerName.equals("Content-Type")){
+					request.setContent_Type(message.substring(start,end));
+				}
+				else if(headerName.equals("Date")){
+					request.setDate(message.substring(start,end));
+				}				
+				else if(headerName.equals("Expires")){
+					request.setExpires(message.substring(start,end));
+				}
+				else if(headerName.equals("In-Reply-To")){
+					request.setIn_Reply_To(message.substring(start,end));
+				}				
+				else if(headerName.equals("Organization")){
+					request.setOrganization(message.substring(start,end));
+				}											
+				else if(headerName.equals("Require")){
+					request.setRequire(message.substring(start,end));
+				}				
+				else if(headerName.equals("Route")){
+					request.setRoute(message.substring(start,end),routeNum++);					
+				}				
+				else if(headerName.equals("Subject")){
+					request.setSubject(message.substring(start,end));
+				}
+				else if(headerName.equals("Supported")){
+					request.setSupported(message.substring(start,end));
+				}
+				else if(headerName.equals("Timestamp")){
+					request.setTimestamp(message.substring(start,end));
+				}				
+				else if(headerName.equals("User-Agent")){
+					request.setUser_Agent(message.substring(start,end));
+				}
+				else if(headerName.equals("Encryption")){
+					request.setEncryption(message.substring(start,end));
+				}
+				else if(headerName.equals("Record-Route")){
+					request.setRecord_Route(message.substring(start,end),record_routeNum++);					
+				}
+				else if(headerName.equals("Hide")){
+					request.setHide(message.substring(start,end));
+				}
+				else if(headerName.equals("Max-Forwards")){
+					request.setMax_Forward(message.substring(start,end));
+				}
+				else if(headerName.equals("Priority")){
+					request.setPriority(message.substring(start,end));
+				}
+				else if(headerName.equals("Proxy-Authentication")){
+					request.setProxy_Authentication(message.substring(start,end));
+				}
+				else if(headerName.equals("Proxy-Require")){
+					request.setProxy_Require(message.substring(start,end));
+				}
+				else if(headerName.equals("Response-Key")){
+					request.setResponse_Key(message.substring(start,end));
+				}
+				else
+				{
+					//Syntax error
+					siputils.SetErrorNumber(400);
+				}
+				
+			}
+			else
+			{
+				parseBody (message,request);
+				break;
+			}
+																									
+			message=message.substring(end+1);			
+			
+			if(!message.equals("")){
+				String s=message.substring(0,1);
+				if (s.equals("\n"))
+				{	
+					body=true;
+					message=message.substring(1);												
+				}
+			}
+			
+		}	
+		VMSLogger.log(Level.INFO, "SIP request is parsed.");
+		
+	}
+	
+	///////////////////////////////////////////////////////////////
+	//Parse SIP Responses
+	//////////////////////////////////////////////////////////////
+	private static void parse(String message,SIPResponse response)
+	{
+		
+		VMSLogger.log(Level.INFO, "SIP message is a response.");
+		
+		start=0;
+		body=false;
+			
+		message="SIP/2.0 200 Ok"+"\n";
+		
+		if(!message.equals(""))
+		{
+			
+			end=message.indexOf(" ");
+			if(end==-1){
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return;
+			}
+			response.setSIPVersion(message.substring(start,end));						
+			message=message.substring(end+1);		
+		}
+		else{
+			//Syntax error
+			siputils.SetErrorNumber(400);
+		}
+		
+		if(!message.equals(""))
+		{			
+			end=message.indexOf(" ");
+			if(end==-1){
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return;
+			}
+			response.setStatusCode(message.substring(start,end));			
+			message=message.substring(end+1);		
+		}
+		
+		if(!message.equals(""))
+		{
+			end=message.indexOf("\n");
+			if(end==-1){
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return;
+			}
+			response.setReasonPhrase(message.substring(start,end));			
+			message=message.substring(end+1);			
+			
+		}
+		
+		int contactNum=0;
+		int record_routeNum=0;
+		int viaNum=0;
+		
+		while(!message.equals(""))
+		{	
+			if(body==false){
+				end=message.indexOf(":");
+				if(end==-1){
+					//Syntax Error
+					siputils.SetErrorNumber(400);
+					return;
+				}
+				String headerName=message.substring(start,end);
+				message=message.substring(end+1);
+				end=message.indexOf("\n");
+				if(end==-1){
+					//Syntax Error
+					siputils.SetErrorNumber(400);
+					return;
+				}
+				
+				
+				//	General Headers
+				if(headerName.equals("Accept")){
+					response.setAccept(message.substring(start,end));						
+				}
+				else if(headerName.equals("Accept-Encoding")){
+					response.setAccept_Encoding(message.substring(start,end));
+				}
+				else if(headerName.equals("Accept-Language")){
+					response.setAccept_Language(message.substring(start,end));
+				}
+				else if(headerName.equals("Call-ID")){
+					response.setCallId(message.substring(start,end));
+				}
+				else if(headerName.equals("Contact")){
+					response.setContact(message.substring(start,end),contactNum++);					
+				}							
+				else if(headerName.equals("CSeq")){
+					response.setCSeq(message.substring(start,end));
+				}
+				else if(headerName.equals("Date")){
+					response.setDate(message.substring(start,end));
+				}	
+				else if(headerName.equals("Encryption")){
+					response.setEncryption(message.substring(start,end));
+				}
+				else if(headerName.equals("From")){
+					response.setFrom(message.substring(start,end));
+				}				
+				else if(headerName.equals("Organization")){
+					response.setOrganization(message.substring(start,end));
+				}				
+				else if(headerName.equals("Record-Route")){
+					response.setRecord_Route(message.substring(start,end),record_routeNum++);					
+				}
+				else if(headerName.equals("Require")){
+					response.setRequire(message.substring(start,end));
+				}
+				else if(headerName.equals("Supported")){
+					response.setSupported(message.substring(start,end));
+				}
+				else if(headerName.equals("Timestamp")){
+					response.setTimestamp(message.substring(start,end));
+				}
+				else if(headerName.equals("To")){
+					response.setTo(message.substring(start,end));
+				}
+				else if(headerName.equals("User-Agent")){
+					response.setUser_Agent(message.substring(start,end));
+				}				
+				else if(headerName.equals("Via")){
+					response.setVia(message.substring(start,end),viaNum++);					
+				}
+				
+				
+				//Entity Headers
+				else if(headerName.equals("Allow")){
+					response.setAllow(message.substring(start,end));
+				}				
+				else if(headerName.equals("Content-Desposition")){
+					response.setContent_Desposition(message.substring(start,end));
+				}											
+				else if(headerName.equals("Content-Encoding")){
+					response.setContent_Encoding(message.substring(start,end));
+				}				
+				else if(headerName.equals("Content-Language")){
+					response.setContent_Language(message.substring(start,end));
+				}				
+				else if(headerName.equals("Content-Length")){
+					response.setContent_Length(message.substring(start,end));
+				}
+				else if(headerName.equals("Content-Type")){
+					response.setContent_Type(message.substring(start,end));
+				}
+				else if(headerName.equals("Expires")){
+					response.setExpires(message.substring(start,end));
+				}
+				
+				
+				// Response Headers
+				else if(headerName.equals("Proxy-Authenticate")){
+					response.setProxy_Authenticate(message.substring(start,end));
+				}
+				else if(headerName.equals("Retry-After")){
+					response.setRetry_After(message.substring(start,end));
+				}
+				else if(headerName.equals("Server")){
+					response.setServer(message.substring(start,end));
+				}
+				else if(headerName.equals("Unsupported")){
+					response.setUnsupported(message.substring(start,end));
+				}
+				else if(headerName.equals("Warning")){
+					response.setWarning(message.substring(start,end));
+				}
+				else if(headerName.equals("WWW-Authenticate")){
+					response.setWWW_Authenticate(message.substring(start,end));
+				}	
+				else
+				{
+					//Syntax error
+					siputils.SetErrorNumber(400);
+				}
+			}
+			else
+			{
+				parseBody(message,response);
+				break;
+			}
+																									
+			message=message.substring(end+1);	
+			
+			if(!message.equals("")){
+				String s=message.substring(0,1);
+				if (s.equals("\n"))
+				{	
+					body=true;
+					message=message.substring(1);												
+				}
+			}
+		}		
+		VMSLogger.log(Level.INFO, "SIP Response is parsed.");			
+	}
+		
+	//////////////////////////////////////////////////////////
+	// parse SDP
+	//////////////////////////////////////////////////////////
+	private static void parseBody(String message,SIPMessage s)
+	{
+		VMSLogger.log(Level.INFO, "Start to parse SIP message body(SDP).");
+		
+		
+		int aNum=0;
+		int bNum=0;
+		int eNum=0;
+		int pNum=0;
+		int tNum=0;
+		int cNum=0;
+		int mediaDescriptionNum=0;
+		
+		while(!message.equals(""))
+		{
+			end=message.indexOf("=");
+			if(end==-1){
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return;
+			}
+			String SDPField=message.substring(start,end);
+			message=message.substring(end+1);
+			end=message.indexOf("\n");
+			if(end==-1){
+				//Syntax Error
+				siputils.SetErrorNumber(400);
+				return;
+			}
+		
+		
+			if (SDPField.equals("v")){ //Session Description
+				SMT="S";
+			}else if (SDPField.equals("t")){ //Time Description
+				SMT="T";
+			}else if (SDPField.equals("m")){ //Media Description
+				mediaDescriptionNum++;
+				SMT="M";
+			}
+					
+			if(SMT.equals("S")) // s:Session Description
+			{
+				if(SDPField.equals("v"))
+					s.sdp.SessionDescription.setV(message.substring(start,end));
+				else if(SDPField.equals("a"))
+					s.sdp.SessionDescription.a[aNum++]=message.substring(start,end);
+				else if(SDPField.equals("b"))
+					s.sdp.SessionDescription.b[bNum++]=message.substring(start,end);
+				else if(SDPField.equals("c"))
+					s.sdp.SessionDescription.setC(message.substring(start,end));
+				else if(SDPField.equals("e"))
+					s.sdp.SessionDescription.e[eNum++]=message.substring(start,end);
+				else if(SDPField.equals("i"))
+					s.sdp.SessionDescription.setI(message.substring(start,end));
+				else if(SDPField.equals("k"))
+					s.sdp.SessionDescription.setK(message.substring(start,end));
+				else if(SDPField.equals("o"))
+					s.sdp.SessionDescription.setO(message.substring(start,end));
+				else if(SDPField.equals("p"))
+					s.sdp.SessionDescription.p[pNum++]=message.substring(start,end);
+				else if(SDPField.equals("s"))
+					s.sdp.SessionDescription.setS(message.substring(start,end));
+				else if(SDPField.equals("u"))
+					s.sdp.SessionDescription.setU(message.substring(start,end));
+				else if(SDPField.equals("z"))
+					s.sdp.SessionDescription.setZ(message.substring(start,end));
+				else{
+					
+					//SDP Parameters Not Understood /307
+					siputils.SetErrorNumber(307);
+					return ;
+				}
+			
+			}
+			else if (SMT.equals("M"))   //M:Media Description
+			{
+				if (SDPField.equals("m"))
+					s.sdp.MediaDescription[mediaDescriptionNum].setM(message.substring(start,end));					
+				else if (SDPField.equals("a"))
+					s.sdp.MediaDescription[mediaDescriptionNum].setA(message.substring(start,end));
+				else if (SDPField.equals("b"))
+					s.sdp.MediaDescription[mediaDescriptionNum].setB(message.substring(start,end));
+				else if (SDPField.equals("c"))
+					s.sdp.MediaDescription[mediaDescriptionNum].c[cNum++]=message.substring(start,end);
+				else if (SDPField.equals("i"))
+					s.sdp.MediaDescription[mediaDescriptionNum].setI(message.substring(start,end));
+				else if (SDPField.equals("k"))
+					s.sdp.MediaDescription[mediaDescriptionNum].setK(message.substring(start,end));
+				else{
+					
+					// Generaate Response
+					//SDP Parameters Not Understood /307
+					siputils.SetErrorNumber(307);
+					return;
+				}
+			
+			
+			}
+			else if(SMT.equals("T"))   //T:Time Description
+			{
+				if (SDPField.equals("t"))
+					s.sdp.TimeDescription.t[tNum++]=message.substring(start,end);
+				else if (SDPField.equals("r"))
+					s.sdp.TimeDescription.setR(message.substring(start,end));
+				else
+				{
+					//	Generaate Response
+					//	SDP Parameters Not Understood /307
+					siputils.SetErrorNumber(307);
+					return;
+				}
+			
+			}
+			else
+			{
+				// Generaate Response
+				//	SDP Parameters Not Understood /307
+				siputils.SetErrorNumber(307);
+				return;
+			}
+			message=message.substring(end+1);
+		}
+		VMSLogger.log(Level.INFO, "SIP message body is parsed.");
+	}
+	
+		
+
+}

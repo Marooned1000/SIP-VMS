@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="windows-1256" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2006-11-29T17:17:46</date>
+  <millis>1164808066591</millis>
+  <sequence>0</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Listening to the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067462</millis>
+  <sequence>1</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Received from the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067492</millis>
+  <sequence>2</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Listening to the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067522</millis>
+  <sequence>3</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>Start to parse a SIP message.</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067562</millis>
+  <sequence>4</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>SIP message is a request</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067562</millis>
+  <sequence>5</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>Start to parse SIP message body(SDP).</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067562</millis>
+  <sequence>6</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>SIP request is parsed.</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067602</millis>
+  <sequence>7</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>******Add new SIP message in state: start******</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067622</millis>
+  <sequence>8</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>START stateStart  CallId: 219fcb384f21d25c75820c3426cdacf0@192.168.0.177, Method: OPTIONS</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067642</millis>
+  <sequence>9</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>Start to make SIP response</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067642</millis>
+  <sequence>10</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>Start to make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067642</millis>
+  <sequence>11</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067642</millis>
+  <sequence>12</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>Make a SIP response</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067642</millis>
+  <sequence>13</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>
+SIP/2.0 200 Ok
+Via: SIP/2.0/UDP 192.168.0.177:5060;branch=z9hG4bK4280cfaf;rport
+From: "asterisk" &lt;sip:asterisk@192.168.0.177&gt;;tag=as5f56c6aa
+To: &lt;sip:192.168.0.101:5090&gt;
+Contact: &lt;sip:voicemail@194.225.73.41:5060&gt;
+Call-ID: 219fcb384f21d25c75820c3426cdacf0@192.168.0.177
+CSeq: 102 OPTIONS
+
+</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067642</millis>
+  <sequence>14</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>200 Response is generated</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:47</date>
+  <millis>1164808067652</millis>
+  <sequence>15</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>11</thread>
+  <message>Sent to    address:/192.168.0.177     port:5060</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069755</millis>
+  <sequence>16</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Received from the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069765</millis>
+  <sequence>17</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>Start to parse a SIP message.</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069765</millis>
+  <sequence>18</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>SIP message is a request</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069765</millis>
+  <sequence>19</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>Start to parse SIP message body(SDP).</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069765</millis>
+  <sequence>20</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>SIP request is parsed.</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069765</millis>
+  <sequence>21</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>******Add new SIP message in state: start******</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069765</millis>
+  <sequence>22</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>START stateStart  CallId: 0e997b4b023db2081bc6a5c25715604e@192.168.0.177, Method: OPTIONS</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069785</millis>
+  <sequence>23</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>Start to make SIP response</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069785</millis>
+  <sequence>24</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>Start to make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069785</millis>
+  <sequence>25</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069785</millis>
+  <sequence>26</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>Make a SIP response</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069795</millis>
+  <sequence>27</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Listening to the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069795</millis>
+  <sequence>28</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>
+SIP/2.0 200 Ok
+Via: SIP/2.0/UDP 192.168.0.177:5060;branch=z9hG4bK0910e628;rport
+From: "asterisk" &lt;sip:asterisk@192.168.0.177&gt;;tag=as4bcb44a8
+To: &lt;sip:192.168.0.101:5090&gt;
+Contact: &lt;sip:voicemail@194.225.73.41:5060&gt;
+Call-ID: 0e997b4b023db2081bc6a5c25715604e@192.168.0.177
+CSeq: 102 OPTIONS
+
+</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069795</millis>
+  <sequence>29</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>200 Response is generated</message>
+</record>
+<record>
+  <date>2006-11-29T17:17:49</date>
+  <millis>1164808069805</millis>
+  <sequence>30</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>12</thread>
+  <message>Sent to    address:/192.168.0.177     port:5060</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084056</millis>
+  <sequence>31</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Received from the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084066</millis>
+  <sequence>32</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>Start to parse a SIP message.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084066</millis>
+  <sequence>33</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>SIP message is a request</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084066</millis>
+  <sequence>34</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>Start to parse SIP message body(SDP).</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084066</millis>
+  <sequence>35</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>SIP request is parsed.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084076</millis>
+  <sequence>36</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>******Add new SIP message in state: start******</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084076</millis>
+  <sequence>37</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>START stateStart  CallId: 5d6b7da72c8d5003220f5c3748dd0927@192.168.0.177, Method: INVITE</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084086</millis>
+  <sequence>38</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>200 Response is generated</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084096</millis>
+  <sequence>39</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>Start to make SIP response</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084096</millis>
+  <sequence>40</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>Start to make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084096</millis>
+  <sequence>41</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084096</millis>
+  <sequence>42</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>Make a SIP response</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084096</millis>
+  <sequence>43</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>
+SIP/2.0 200 Ok
+Via: SIP/2.0/UDP 192.168.0.177:5060;branch=z9hG4bK6fbb8822;rport
+From: "0041435215301" &lt;sip:0041435215301@192.168.0.177&gt;;tag=as0893ae4f
+To: &lt;sip:0041435215302@192.168.0.101:5090&gt;
+Contact: &lt;sip:voicemail@194.225.73.41:5060&gt;
+Call-ID: 5d6b7da72c8d5003220f5c3748dd0927@192.168.0.177
+CSeq: 102 INVITE
+Allow: OPTIONS, CANCEL, BYE, INVITE, INFO, ACK, OPTION
+Content-Type: application/sdp
+Content-Length: 150
+
+v=0
+o=voicemail 5825114 7118244 IN IP4 194.225.73.41
+s=voicemail
+c=IN IP4 194.225.73.41
+t=0 0
+m=audio 7955 RTP/AVP 3 101 
+a=rtpmap:3 gsm/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=sendrecv
+</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084106</millis>
+  <sequence>44</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Listening to the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:04</date>
+  <millis>1164808084116</millis>
+  <sequence>45</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>13</thread>
+  <message>Sent to    address:/192.168.0.177     port:5060</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129802</millis>
+  <sequence>46</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Received from the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129812</millis>
+  <sequence>47</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>10</thread>
+  <message>Listening to the port:5090</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129812</millis>
+  <sequence>48</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>Start to parse a SIP message.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129822</millis>
+  <sequence>49</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>SIP message is a request</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129822</millis>
+  <sequence>50</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>Start to parse SIP message body(SDP).</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129822</millis>
+  <sequence>51</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>SIP request is parsed.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129822</millis>
+  <sequence>52</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>******Add new SIP message in state: start******</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129822</millis>
+  <sequence>53</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>START stateStart  CallId: 7b1e1398523373e62f9e04f72358497b@192.168.0.177, Method: OPTIONS</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129832</millis>
+  <sequence>54</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>Start to make SIP response</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129842</millis>
+  <sequence>55</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>Start to make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129842</millis>
+  <sequence>56</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129842</millis>
+  <sequence>57</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>Make a SIP response</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129842</millis>
+  <sequence>58</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>
+SIP/2.0 200 Ok
+Via: SIP/2.0/UDP 192.168.0.177:5060;branch=z9hG4bK1b175bd2;rport
+From: "asterisk" &lt;sip:asterisk@192.168.0.177&gt;;tag=as5d1ce3f8
+To: &lt;sip:192.168.0.101:5090&gt;
+Contact: &lt;sip:voicemail@194.225.73.41:5060&gt;
+Call-ID: 7b1e1398523373e62f9e04f72358497b@192.168.0.177
+CSeq: 102 OPTIONS
+
+</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129842</millis>
+  <sequence>59</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>200 Response is generated</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:49</date>
+  <millis>1164808129852</millis>
+  <sequence>60</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>14</thread>
+  <message>Sent to    address:/192.168.0.177     port:5060</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:56</date>
+  <millis>1164808136471</millis>
+  <sequence>61</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Time out in state :s0</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:56</date>
+  <millis>1164808136471</millis>
+  <sequence>62</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Start to make SIP request. 5d6b7da72c8d5003220f5c3748dd0927@192.168.0.177</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:56</date>
+  <millis>1164808136471</millis>
+  <sequence>63</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Start to make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:56</date>
+  <millis>1164808136481</millis>
+  <sequence>64</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:18:56</date>
+  <millis>1164808136481</millis>
+  <sequence>65</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Maked a SIP request </message>
+</record>
+<record>
+  <date>2006-11-29T17:18:56</date>
+  <millis>1164808136481</millis>
+  <sequence>66</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Sent to    address:/192.168.0.177     port:5060</message>
+</record>
+<record>
+  <date>2006-11-29T17:19:06</date>
+  <millis>1164808146926</millis>
+  <sequence>67</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Time out in state :s3</message>
+</record>
+<record>
+  <date>2006-11-29T17:19:06</date>
+  <millis>1164808146926</millis>
+  <sequence>68</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Start to make SIP request. 5d6b7da72c8d5003220f5c3748dd0927@192.168.0.177</message>
+</record>
+<record>
+  <date>2006-11-29T17:19:06</date>
+  <millis>1164808146936</millis>
+  <sequence>69</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Start to make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:19:06</date>
+  <millis>1164808146936</millis>
+  <sequence>70</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>make SIP message body.</message>
+</record>
+<record>
+  <date>2006-11-29T17:19:06</date>
+  <millis>1164808146936</millis>
+  <sequence>71</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Maked a SIP request </message>
+</record>
+<record>
+  <date>2006-11-29T17:19:06</date>
+  <millis>1164808146936</millis>
+  <sequence>72</sequence>
+  <logger>VMSLogger</logger>
+  <level>INFO</level>
+  <class>ir.iranet.vms.util.VMSLogger</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Sent to    address:/192.168.0.177     port:5060</message>
+</record>

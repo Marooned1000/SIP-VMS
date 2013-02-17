@@ -1,0 +1,195 @@
+Nov 29, 2006 5:17:46 PM ir.iranet.vms.util.VMSLogger log
+INFO: Listening to the port:5090
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: Received from the port:5090
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: Listening to the port:5090
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to parse a SIP message.
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: SIP message is a request
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to parse SIP message body(SDP).
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: SIP request is parsed.
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: ******Add new SIP message in state: start******
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: START stateStart  CallId: 219fcb384f21d25c75820c3426cdacf0@192.168.0.177, Method: OPTIONS
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP response
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP message body.
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: make SIP message body.
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: Make a SIP response
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: 
+SIP/2.0 200 Ok
+Via: SIP/2.0/UDP 192.168.0.177:5060;branch=z9hG4bK4280cfaf;rport
+From: "asterisk" <sip:asterisk@192.168.0.177>;tag=as5f56c6aa
+To: <sip:192.168.0.101:5090>
+Contact: <sip:voicemail@194.225.73.41:5060>
+Call-ID: 219fcb384f21d25c75820c3426cdacf0@192.168.0.177
+CSeq: 102 OPTIONS
+
+
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: 200 Response is generated
+Nov 29, 2006 5:17:47 PM ir.iranet.vms.util.VMSLogger log
+INFO: Sent to    address:/192.168.0.177     port:5060
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Received from the port:5090
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to parse a SIP message.
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: SIP message is a request
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to parse SIP message body(SDP).
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: SIP request is parsed.
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: ******Add new SIP message in state: start******
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: START stateStart  CallId: 0e997b4b023db2081bc6a5c25715604e@192.168.0.177, Method: OPTIONS
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP response
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP message body.
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: make SIP message body.
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Make a SIP response
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Listening to the port:5090
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: 
+SIP/2.0 200 Ok
+Via: SIP/2.0/UDP 192.168.0.177:5060;branch=z9hG4bK0910e628;rport
+From: "asterisk" <sip:asterisk@192.168.0.177>;tag=as4bcb44a8
+To: <sip:192.168.0.101:5090>
+Contact: <sip:voicemail@194.225.73.41:5060>
+Call-ID: 0e997b4b023db2081bc6a5c25715604e@192.168.0.177
+CSeq: 102 OPTIONS
+
+
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: 200 Response is generated
+Nov 29, 2006 5:17:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Sent to    address:/192.168.0.177     port:5060
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: Received from the port:5090
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to parse a SIP message.
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: SIP message is a request
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to parse SIP message body(SDP).
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: SIP request is parsed.
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: ******Add new SIP message in state: start******
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: START stateStart  CallId: 5d6b7da72c8d5003220f5c3748dd0927@192.168.0.177, Method: INVITE
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: 200 Response is generated
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP response
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP message body.
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: make SIP message body.
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: Make a SIP response
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: 
+SIP/2.0 200 Ok
+Via: SIP/2.0/UDP 192.168.0.177:5060;branch=z9hG4bK6fbb8822;rport
+From: "0041435215301" <sip:0041435215301@192.168.0.177>;tag=as0893ae4f
+To: <sip:0041435215302@192.168.0.101:5090>
+Contact: <sip:voicemail@194.225.73.41:5060>
+Call-ID: 5d6b7da72c8d5003220f5c3748dd0927@192.168.0.177
+CSeq: 102 INVITE
+Allow: OPTIONS, CANCEL, BYE, INVITE, INFO, ACK, OPTION
+Content-Type: application/sdp
+Content-Length: 150
+
+v=0
+o=voicemail 5825114 7118244 IN IP4 194.225.73.41
+s=voicemail
+c=IN IP4 194.225.73.41
+t=0 0
+m=audio 7955 RTP/AVP 3 101 
+a=rtpmap:3 gsm/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=sendrecv
+
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: Listening to the port:5090
+Nov 29, 2006 5:18:04 PM ir.iranet.vms.util.VMSLogger log
+INFO: Sent to    address:/192.168.0.177     port:5060
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Received from the port:5090
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Listening to the port:5090
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to parse a SIP message.
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: SIP message is a request
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to parse SIP message body(SDP).
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: SIP request is parsed.
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: ******Add new SIP message in state: start******
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: START stateStart  CallId: 7b1e1398523373e62f9e04f72358497b@192.168.0.177, Method: OPTIONS
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP response
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP message body.
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: make SIP message body.
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Make a SIP response
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: 
+SIP/2.0 200 Ok
+Via: SIP/2.0/UDP 192.168.0.177:5060;branch=z9hG4bK1b175bd2;rport
+From: "asterisk" <sip:asterisk@192.168.0.177>;tag=as5d1ce3f8
+To: <sip:192.168.0.101:5090>
+Contact: <sip:voicemail@194.225.73.41:5060>
+Call-ID: 7b1e1398523373e62f9e04f72358497b@192.168.0.177
+CSeq: 102 OPTIONS
+
+
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: 200 Response is generated
+Nov 29, 2006 5:18:49 PM ir.iranet.vms.util.VMSLogger log
+INFO: Sent to    address:/192.168.0.177     port:5060
+Nov 29, 2006 5:18:56 PM ir.iranet.vms.util.VMSLogger log
+INFO: Time out in state :s0
+Nov 29, 2006 5:18:56 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP request. 5d6b7da72c8d5003220f5c3748dd0927@192.168.0.177
+Nov 29, 2006 5:18:56 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP message body.
+Nov 29, 2006 5:18:56 PM ir.iranet.vms.util.VMSLogger log
+INFO: make SIP message body.
+Nov 29, 2006 5:18:56 PM ir.iranet.vms.util.VMSLogger log
+INFO: Maked a SIP request 
+Nov 29, 2006 5:18:56 PM ir.iranet.vms.util.VMSLogger log
+INFO: Sent to    address:/192.168.0.177     port:5060
+Nov 29, 2006 5:19:06 PM ir.iranet.vms.util.VMSLogger log
+INFO: Time out in state :s3
+Nov 29, 2006 5:19:06 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP request. 5d6b7da72c8d5003220f5c3748dd0927@192.168.0.177
+Nov 29, 2006 5:19:06 PM ir.iranet.vms.util.VMSLogger log
+INFO: Start to make SIP message body.
+Nov 29, 2006 5:19:06 PM ir.iranet.vms.util.VMSLogger log
+INFO: make SIP message body.
+Nov 29, 2006 5:19:06 PM ir.iranet.vms.util.VMSLogger log
+INFO: Maked a SIP request 
+Nov 29, 2006 5:19:06 PM ir.iranet.vms.util.VMSLogger log
+INFO: Sent to    address:/192.168.0.177     port:5060

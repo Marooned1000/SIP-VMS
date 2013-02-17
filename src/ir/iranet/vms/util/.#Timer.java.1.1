@@ -1,0 +1,81 @@
+package ir.iranet.vms.util;
+
+public class Timer extends Thread
+{
+		/** Rate at which timer is checked */
+		protected int m_rate = 100;
+		
+		/** Length of timeout */
+		private int m_length;
+
+		/** Time elapsed */
+		private int m_elapsed;
+
+		/**
+		  * Creates a timer of a specified length
+		  * @param	length	Length of time before timeout occurs
+		  */
+		public Timer ( int length )
+		{
+			// Assign to member variable
+			m_length = length;
+
+			// Set time elapsed
+			m_elapsed = 0;
+		}
+
+		
+		/** Resets the timer back to zero */
+		public synchronized void reset()
+		{
+			m_elapsed = 0;
+			System.out.println("Reset\n");
+		}
+
+		/** Performs timer specific code */
+		public void run()
+		{
+			// Keep looping
+			
+			System.out.println("Run\n");
+			
+			for (;;)
+			{
+				// Put the timer to sleep
+				try
+				{ 
+					System.out.println("Put the timer to sleep\n");
+					Thread.sleep(m_rate);
+				}
+				catch (InterruptedException ioe) 
+				{
+					continue;
+				}
+
+				// Use 'synchronized' to prevent conflicts
+				synchronized ( this )
+				{
+					// Increment time remaining
+					m_elapsed += m_rate;
+                  
+					// Check to see if the time has been exceeded
+	                
+					if (m_elapsed > m_length)
+					{
+						// Trigger a timeout
+						System.out.println("\n");
+						timeout();
+					}
+				}
+
+			}
+		}
+
+		// Override this to provide custom functionality
+		public void timeout()
+		{
+			System.err.println ("Network timeout occurred.... terminating");
+			System.exit(1);
+		}
+	}
+	
